@@ -1,0 +1,43 @@
+{
+  "notice": "generated historical schedule; user-requested Git metadata, not elapsed work",
+  "seed": 3605116440,
+  "timezone": "Europe/Moscow",
+  "commits": [
+    {
+      "index": 1,
+      "message": "feat: validate immutable architecture policies",
+      "weight": 1,
+      "date": "2026-07-10T15:04:58+03:00"
+    },
+    {
+      "index": 2,
+      "message": "feat: detect direct dependencies and typed symbol references",
+      "weight": 3,
+      "date": "2026-07-29T13:42:49+03:00"
+    },
+    {
+      "index": 3,
+      "message": "feat: propagate bounded deterministic dependency facts",
+      "weight": 4,
+      "date": "2026-08-27T14:13:35+03:00"
+    },
+    {
+      "index": 4,
+      "message": "feat: integrate validated CLI and subprocess acceptance tests",
+      "weight": 3,
+      "date": "2026-09-17T18:06:09+03:00"
+    },
+    {
+      "index": 5,
+      "message": "feat: add shop demos and reproducible CI workflows",
+      "weight": 2,
+      "date": "2026-09-29T22:59:28+03:00"
+    },
+    {
+      "index": 6,
+      "message": "docs: record benchmark evidence and final acceptance",
+      "weight": 2,
+      "date": "2026-10-14T13:27:45+03:00"
+    }
+  ]
+}

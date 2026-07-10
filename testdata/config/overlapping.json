@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "layers": [
+    {"name": "domain", "packages": ["example.com/shop/..."]},
+    {"name": "storage", "packages": ["example.com/shop/internal/storage/..."]}
+  ],
+  "dependency_rules": [],
+  "forbidden_symbols": []
+}
