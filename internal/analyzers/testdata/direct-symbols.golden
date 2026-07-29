@@ -1,0 +1,12 @@
+BG001 [no-storage] bgdirect/domain imports forbidden bgstorage
+BG001 [no-storage] bgdirect/domain imports forbidden bgstorage/blank
+BG001 [no-storage] bgdirect/domain imports forbidden bgstorage/dot
+BG001 [no-storage] bgdirect/domain imports forbidden bgstorage/normal
+BG002 [no-default] bgsymbols references forbidden symbol net/http.DefaultClient
+BG002 [no-default] bgsymbols/dot references forbidden symbol net/http.DefaultClient
+BG002 [no-fatal] bgsymbols references forbidden symbol log.Fatal
+BG002 [no-get] bgsymbols references forbidden symbol net/http.Get
+BG002 [no-get] bgsymbols references forbidden symbol net/http.Get
+BG002 [no-get] bgsymbols references forbidden symbol net/http.Get
+BG002 [no-get] bgsymbols/dot references forbidden symbol net/http.Get
+BG002 [no-get] bgsymbols/dot references forbidden symbol net/http.Get
