@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "layers": [
+    {"name": "policy", "packages": ["boundaryguard.local/boundaryguard/internal/configuration/..."]},
+    {"name": "facts", "packages": ["boundaryguard.local/boundaryguard/internal/facts/..."]},
+    {"name": "analysis", "packages": ["boundaryguard.local/boundaryguard/internal/analyzers/..."]}
+  ],
+  "dependency_rules": [
+    {"id": "policy-independent", "from_layer": "policy", "to_layer": "analysis", "kind": "transitive"},
+    {"id": "facts-independent", "from_layer": "facts", "to_layer": "analysis", "kind": "transitive"}
+  ],
+  "forbidden_symbols": [
+    {"id": "internal-no-exit", "packages": ["boundaryguard.local/boundaryguard/internal/configuration", "boundaryguard.local/boundaryguard/internal/facts", "boundaryguard.local/boundaryguard/internal/analyzers", "boundaryguard.local/boundaryguard/internal/synthetic"], "symbol": "os.Exit"},
+    {"id": "no-http-default", "packages": ["boundaryguard.local/boundaryguard/..."], "symbol": "net/http.DefaultClient"}
+  ]
+}

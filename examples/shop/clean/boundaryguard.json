@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "layers": [
+    {"name": "domain", "packages": ["example.com/shop/internal/domain/..."]},
+    {"name": "application", "packages": ["example.com/shop/internal/application/..."]},
+    {"name": "storage", "packages": ["example.com/shop/internal/storage/..."]},
+    {"name": "transport", "packages": ["example.com/shop/internal/transport/..."]}
+  ],
+  "dependency_rules": [
+    {"id": "domain-no-storage", "from_layer": "domain", "to_layer": "storage", "kind": "transitive"}
+  ],
+  "forbidden_symbols": [
+    {"id": "transport-no-global-get", "packages": ["example.com/shop/internal/transport/..."], "symbol": "net/http.Get"},
+    {"id": "transport-no-default-client", "packages": ["example.com/shop/internal/transport/..."], "symbol": "net/http.DefaultClient"}
+  ]
+}

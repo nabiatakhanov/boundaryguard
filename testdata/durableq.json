@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "layers": [
+    {"name": "domain", "packages": ["durableq/internal/queue/..."]},
+    {"name": "storage", "packages": ["durableq/internal/store/..."]},
+    {"name": "transport", "packages": ["durableq/internal/httpapi/..."]}
+  ],
+  "dependency_rules": [
+    {"id": "queue-storage", "from_layer": "domain", "to_layer": "storage", "kind": "transitive"},
+    {"id": "httpapi-storage", "from_layer": "transport", "to_layer": "storage", "kind": "direct"}
+  ],
+  "forbidden_symbols": [
+    {"id": "internal-http-get", "packages": ["durableq/internal/..."], "symbol": "net/http.Get"},
+    {"id": "internal-default-client", "packages": ["durableq/internal/..."], "symbol": "net/http.DefaultClient"},
+    {"id": "internal-log-fatal", "packages": ["durableq/internal/..."], "symbol": "log.Fatal"}
+  ]
+}

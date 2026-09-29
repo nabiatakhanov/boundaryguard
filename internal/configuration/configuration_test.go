@@ -208,12 +208,14 @@ func TestLoad(t *testing.T) {
 
 func TestCheckedInFixtures(t *testing.T) {
 	t.Parallel()
-	good, err := os.ReadFile(filepath.Join("..", "..", "testdata", "config", "valid.json"))
-	if err != nil {
-		t.Fatal(err)
-	}
-	if _, err := Parse(good); err != nil {
-		t.Fatal(err)
+	for _, path := range []string{filepath.Join("config", "valid.json"), "durableq.json"} {
+		good, err := os.ReadFile(filepath.Join("..", "..", "testdata", path))
+		if err != nil {
+			t.Fatal(err)
+		}
+		if _, err := Parse(good); err != nil {
+			t.Fatalf("%s: %v", path, err)
+		}
 	}
 	bad, err := os.ReadFile(filepath.Join("..", "..", "testdata", "config", "overlapping.json"))
 	if err != nil {
