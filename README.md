@@ -21,8 +21,8 @@ Go **1.26.2** is the minimum module version and the tested toolchain;
 implementation/test versions, independent of the requested historical Git dates.
 See [official Go release policy](https://go.dev/doc/devel/release) and
 [the pinned analysis driver](https://pkg.go.dev/golang.org/x/tools@v0.52.0/go/analysis/singlechecker).
-Validation was performed on Windows/amd64; the Ubuntu CI workflow is prepared,
-but a hosted run has not been executed.
+Validation passed locally on Windows/amd64 and in GitHub Actions on Ubuntu 24.04,
+including the race detector. See the [first hosted run](https://github.com/nabiatakhanov/boundaryguard/actions/runs/40959561087).
 
 From this checkout:
 

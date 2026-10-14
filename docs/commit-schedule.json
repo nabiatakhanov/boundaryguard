@@ -50,6 +50,12 @@
       "message": "docs: prepare BoundaryGuard for GitHub publication",
       "weight": 1,
       "date": "2026-10-14T21:46:39+03:00"
+    },
+    {
+      "index": 9,
+      "message": "docs: record successful hosted GitHub Actions verification",
+      "weight": 1,
+      "date": "2026-10-14T21:51:21+03:00"
     }
   ],
   "initial_commit_count": 6,
@@ -61,6 +67,10 @@
     {
       "seed": 290909695,
       "reason": "User-authorized public GitHub publication: update README repository link. Preserve all seven existing historical dates and the original date convention."
+    },
+    {
+      "seed": 2107155304,
+      "reason": "Record the successful first hosted Ubuntu CI run after public publication; preserve all existing dates."
     }
   ]
 }

@@ -106,9 +106,9 @@ resource accounting is NOT RUN. No cold-cache, speedup or scale guarantee is mad
 
 ## History and boundaries
 
-Eight substantive commits follow `docs/commit-schedule.json`: six planned stages,
-a portability repair and a later README publication update. All existing dates
-are preserved; the additional commits use reserved time later on the final day. Run
+Nine substantive commits follow `docs/commit-schedule.json`: six planned stages,
+a portability repair, a README publication update and hosted-CI evidence. All
+existing dates are preserved; additional commits use reserved time on the final day. Run
 `python scripts/audit_history.py` after the final commit to validate parent
 order, exact planned messages, strict increasing dates, UTC+03:00,
 AuthorDate=CommitDate, and inclusive 2026-07-10..2026-10-14 bounds. It writes the
@@ -121,9 +121,17 @@ same source diagnostic in separate packages. Driver JSON details and source
 selection follow pinned x/tools/Go behavior. Workspace-wide/GOPATH CLI usage and
 vettool protocol support are not offered.
 
-Hosted GitHub Actions and native Linux/macOS execution are **NOT RUN** because
-this local task has no hosted run and uses Windows. The workflow is prepared for
-Ubuntu 24.04/Go 1.26.2. A Windows run does not certify other platforms.
+Following the separately authorized public publication, the
+[first hosted GitHub Actions run](https://github.com/nabiatakhanov/boundaryguard/actions/runs/40959561087)
+passed on Ubuntu 24.04/Go 1.26.2 at revision
+`6962e600db341268ed509fbfdc208ac1b86098dd`: build, tests, format/vet/self-analysis,
+shop demo and `go test -race ./...`. Its
+[raw run/job metadata](evidence/github-actions-first-run.json) is preserved.
+The demo's expected BG001/BG002/BG003 diagnostics can appear as GitHub annotations;
+the job passed because the demo runner verifies their expected exit 3.
+Native macOS execution is **NOT RUN** because no macOS environment was available;
+reproduce the same Make/test commands on that platform. Unix benchmark memory
+accounting and full-process-tree resources remain unmeasured, as described above.
 
 The [ten interview answers and three résumé statements](interview.md) describe
 this implementation and contain no invented commercial experience.
