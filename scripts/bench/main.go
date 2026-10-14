@@ -99,11 +99,15 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	cachePaths := strings.Split(strings.TrimSpace(string(cache)), "\n")
+	for i := range cachePaths {
+		cachePaths[i] = strings.TrimSuffix(cachePaths[i], "\r")
+	}
 	build, ok := debug.ReadBuildInfo()
 	if !ok {
 		log.Fatal("build information unavailable")
 	}
-	metadata := map[string]any{"measured_at": time.Now().UTC().Format(time.RFC3339), "go": strings.TrimSpace(string(goVersion)), "build_info": build.String(), "cache_paths": strings.Split(strings.TrimSpace(string(cache)), "\n"), "os": runtime.GOOS, "arch": runtime.GOARCH, "logical_cpus": runtime.NumCPU(), "cache": "warm: discarded repeat 0 for each generated graph; no cache eviction", "memory_scope": "worker process only; Windows sampled peak working set, Unix wait4 maxrss; excludes go command children", "cpu_scope": "worker user+system CPU only, excludes go command children", "analysis_scope": "checker.Analyze including scheduling and fact transport; no printing or package loading", "samples": results}
+	metadata := map[string]any{"measured_at": time.Now().UTC().Format(time.RFC3339), "go": strings.TrimSpace(string(goVersion)), "build_info": build.String(), "cache_paths": cachePaths, "os": runtime.GOOS, "arch": runtime.GOARCH, "logical_cpus": runtime.NumCPU(), "cache": "warm: discarded repeat 0 for each generated graph; no cache eviction", "memory_scope": "worker process only; Windows sampled peak working set, Unix wait4 maxrss; excludes go command children", "cpu_scope": "worker user+system CPU only, excludes go command children", "analysis_scope": "checker.Analyze including scheduling and fact transport; no printing or package loading", "samples": results}
 	data, err := json.MarshalIndent(metadata, "", "  ")
 	if err != nil {
 		log.Fatal(err)

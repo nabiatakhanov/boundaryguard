@@ -38,6 +38,19 @@
       "message": "docs: record benchmark evidence and final acceptance",
       "weight": 2,
       "date": "2026-10-14T13:27:45+03:00"
+    },
+    {
+      "index": 7,
+      "message": "fix: make clean exports and tests portable across line endings",
+      "weight": 1,
+      "date": "2026-10-14T19:43:56+03:00"
+    }
+  ],
+  "initial_commit_count": 6,
+  "amendments": [
+    {
+      "seed": 2207685963,
+      "reason": "Fresh Git archive exposed CRLF golden handling; preserve all six existing dates and append a substantive portability repair."
     }
   ]
 }

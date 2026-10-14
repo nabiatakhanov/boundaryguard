@@ -29,7 +29,7 @@ change was performed.
 | `make lint` | PASS; format check, `go vet ./...`, product's own policy with tests enabled |
 | `make demo` | PASS; clean exit 0, violating exit 3 with BG001/BG002/BG003 |
 | `make bench` | PASS; 3 graph sizes, 1 discarded warm-up + 2 measured samples each |
-| `go test -race ./...` | PASS; all packages; CLI 22.029s, analyzers 15.495s in final race run |
+| `go test -race ./...` | PASS; all product and script packages |
 | `go test ./internal/configuration -run=^$ -fuzz=FuzzParse -fuzztime=5s -parallel=2` | PASS; 47,919 executions, 49 total interesting inputs, no failure |
 | Seeded DAG witnesses versus BFS | PASS; 150 DAGs; tests print the seed on failure |
 | Read-only production durableq analysis | PASS, analyzer exit 0; source hashes and Git status unchanged |
@@ -51,6 +51,15 @@ CLI tag test exposed that x/tools' deprecated `-tags` flag has no effect; the
 verified invocation uses `GOFLAGS=-tags=special`. JSON boolean spellings and
 enabled `-fix`/`-diff` flags are covered to prevent an accidental successful CI
 result for an architecture violation.
+
+A fresh Git archive exposed a portability defect: with the host's existing
+`core.autocrlf=true`, Git's archive conversion produced CRLF even though the
+stored golden blob used LF. The golden reader now uses `bufio.Scanner`, and
+`.gitattributes` explicitly selects LF without changing global Git settings.
+The repaired test passed against the original CRLF archive fixture. CLI tests
+also reset inherited `GOFLAGS` before testing default source selection; the
+tag-specific case sets its own flags. Benchmark cache-path metadata trims CR
+line endings; the previously recorded raw evidence is preserved unchanged.
 
 ## Required behavior coverage
 
@@ -96,7 +105,9 @@ resource accounting is NOT RUN. No cold-cache, speedup or scale guarantee is mad
 
 ## History and boundaries
 
-Six substantive commits follow `docs/commit-schedule.json`. Run
+Seven substantive commits follow `docs/commit-schedule.json`: six planned stages
+and a final portability repair. The initial six dates are preserved; the repair
+uses the reserved time later on the final day. Run
 `python scripts/audit_history.py` after the final commit to validate parent
 order, exact planned messages, strict increasing dates, UTC+03:00,
 AuthorDate=CommitDate, and inclusive 2026-07-10..2026-10-14 bounds. It writes the

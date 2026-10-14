@@ -28,6 +28,7 @@ func TestJSONStatus(t *testing.T) {
 
 // Use real binaries and a local replace: tests never require network access.
 func TestCLI(t *testing.T) {
+	t.Setenv("GOFLAGS", "")
 	root, err := filepath.Abs(filepath.Join("..", ".."))
 	if err != nil {
 		t.Fatal(err)

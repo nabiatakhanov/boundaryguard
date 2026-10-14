@@ -1,11 +1,12 @@
 package analyzers
 
 import (
+	"bufio"
+	"bytes"
 	"os"
 	"path/filepath"
 	"reflect"
 	"sort"
-	"strings"
 	"testing"
 
 	"boundaryguard.local/boundaryguard/internal/configuration"
@@ -63,7 +64,14 @@ func TestDirectAndSymbols(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	want := strings.Split(strings.TrimSpace(string(golden)), "\n")
+	var want []string
+	scanner := bufio.NewScanner(bytes.NewReader(golden))
+	for scanner.Scan() {
+		want = append(want, scanner.Text())
+	}
+	if err := scanner.Err(); err != nil {
+		t.Fatal(err)
+	}
 	if !reflect.DeepEqual(messages, want) {
 		t.Errorf("messages differ\ngot: %q\nwant: %q", messages, want)
 	}
