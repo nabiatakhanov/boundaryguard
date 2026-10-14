@@ -102,6 +102,7 @@ func TestCLI(t *testing.T) {
 	}{
 		{"help", []string{"-h"}, 0, "config"},
 		{"missing config", []string{"./clean"}, 2, "-config is required"},
+		{"no patterns", []string{"-config", "policy.json"}, 1, "Usage:"},
 		{"bad path", []string{"-config", "absent.json", "./clean"}, 2, "absent.json"},
 		{"bad json", []string{"-config", "bad.json", "./clean"}, 2, "unknown field"},
 		{"unknown flag", []string{"-config", "policy.json", "-unknown", "./clean"}, 2, "flag"},

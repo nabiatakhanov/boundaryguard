@@ -1,0 +1,491 @@
+{
+  "started_at_utc": "2026-10-29T21:14:07.734254+00:00",
+  "repository": "C:\\Users\\Набиюлла\\Desktop\\Projects\\task-queue",
+  "binary": "C:\\Users\\Набиюлла\\Desktop\\Projects\\static-analyzer\\artifacts\\boundaryguard-real.exe",
+  "binary_sha256": "0f66ecaa9813ad239a3fe3dafc08c8c1f83ebd5917a891d04befac3bd025f64a",
+  "config": "C:\\Users\\Набиюлла\\Desktop\\Projects\\static-analyzer\\testdata\\durableq.json",
+  "config_sha256": "f31f24938cf90f331dd3e2efc026720ade12d91e89fe19b9e26f8b2af30b1e7e",
+  "policy": {
+    "version": 1,
+    "layers": [
+      {
+        "name": "domain",
+        "packages": [
+          "durableq/internal/queue/..."
+        ]
+      },
+      {
+        "name": "storage",
+        "packages": [
+          "durableq/internal/store/..."
+        ]
+      },
+      {
+        "name": "transport",
+        "packages": [
+          "durableq/internal/httpapi/..."
+        ]
+      }
+    ],
+    "dependency_rules": [
+      {
+        "id": "queue-storage",
+        "from_layer": "domain",
+        "to_layer": "storage",
+        "kind": "transitive"
+      },
+      {
+        "id": "httpapi-storage",
+        "from_layer": "transport",
+        "to_layer": "storage",
+        "kind": "direct"
+      }
+    ],
+    "forbidden_symbols": [
+      {
+        "id": "internal-http-get",
+        "packages": [
+          "durableq/internal/..."
+        ],
+        "symbol": "net/http.Get"
+      },
+      {
+        "id": "internal-default-client",
+        "packages": [
+          "durableq/internal/..."
+        ],
+        "symbol": "net/http.DefaultClient"
+      },
+      {
+        "id": "internal-log-fatal",
+        "packages": [
+          "durableq/internal/..."
+        ],
+        "symbol": "log.Fatal"
+      }
+    ]
+  },
+  "environment_overrides": {
+    "GOWORK": "off",
+    "GOPROXY": "off",
+    "GOFLAGS": "-mod=readonly",
+    "GIT_OPTIONAL_LOCKS": "0"
+  },
+  "python_version": "3.14.5 (main, May 12 2026, 01:59:30)  [MINGW GCC UCRT 16.1.0 64 bit (AMD64)]",
+  "source_selection": "production packages ./...; -test=false; active platform/build constraints",
+  "completed": true,
+  "go_version": {
+    "command": [
+      "go",
+      "version"
+    ],
+    "cwd": "C:\\Users\\Набиюлла\\Desktop\\Projects\\task-queue",
+    "exit_code": 0,
+    "wall_seconds": 0.12908109999989392,
+    "stdout": "go version go1.26.2 windows/amd64\n",
+    "stderr": ""
+  },
+  "git_version": {
+    "command": [
+      "git",
+      "--version"
+    ],
+    "cwd": "C:\\Users\\Набиюлла\\Desktop\\Projects\\task-queue",
+    "exit_code": 0,
+    "wall_seconds": 0.05885379999745055,
+    "stdout": "git version 2.47.1.windows.1\n",
+    "stderr": ""
+  },
+  "before": {
+    "sha256": "a1f1cf839de3f34e7fded194881db488ee93f6da06913922133469d58d8ba99a",
+    "file_count": 33,
+    "total_bytes": 182582,
+    "files": [
+      {
+        "path": "artifacts/local/.review/jsonb.go",
+        "sha256": "12644bcb974a6c8df76c806bcf58c0a6971eeb3b49263065db205f6052e25830",
+        "bytes": 2032
+      },
+      {
+        "path": "artifacts/local/.review/main.go",
+        "sha256": "19a409c7b658fdc9a7c54700678029d3ed6561bc4259f5f4314cbde416afb8e9",
+        "bytes": 1702
+      },
+      {
+        "path": "cmd/api/main.go",
+        "sha256": "dcd3e37c052e4a0e1e71461ea7490c7b8b3269e3f85bc2917963d8081478b9e3",
+        "bytes": 2343
+      },
+      {
+        "path": "cmd/worker/main.go",
+        "sha256": "11209d3255af5c69f4b4f45069c1b397b533382ac071db8c27683fbc4591481b",
+        "bytes": 3588
+      },
+      {
+        "path": "go.mod",
+        "sha256": "c11f0831d6818afbdf12cb9ecb0038698462b19f8ab4ca03f9f35e354527c76e",
+        "bytes": 795
+      },
+      {
+        "path": "go.sum",
+        "sha256": "f3b5cc9367308f67a5c5d7107dd3be32b368bedc952b16078ca976fc322a5eb6",
+        "bytes": 4513
+      },
+      {
+        "path": "internal/config/config.go",
+        "sha256": "03ca25b64a4c8281f734b0ddc94907e1493b6cc7d7cfec47b43a2bd2632410be",
+        "bytes": 2894
+      },
+      {
+        "path": "internal/config/config_test.go",
+        "sha256": "b75e533378b4e0faaf67bba73212561d835be3b494a03f0144915678adc7eadf",
+        "bytes": 1037
+      },
+      {
+        "path": "internal/handlers/business.go",
+        "sha256": "ee26d59a5447395ca3e13bd40221a3403f8404c8f22c838f4085afd477aa63cb",
+        "bytes": 2035
+      },
+      {
+        "path": "internal/httpapi/api.go",
+        "sha256": "2e949b592cb9d37b297c3d15ec97b9ed5411373da93727b52063f8a05345134b",
+        "bytes": 9511
+      },
+      {
+        "path": "internal/httpapi/api_test.go",
+        "sha256": "4dce18d9817d437746d6c7715396581451086ec497ed5c294b079a2163538659",
+        "bytes": 12352
+      },
+      {
+        "path": "internal/httpapi/validate.go",
+        "sha256": "637d9fe410bc9be8aca5d86d0aee4076176dee33e2872a9bf4eb127661b4f547",
+        "bytes": 5916
+      },
+      {
+        "path": "internal/observe/metrics.go",
+        "sha256": "d482e5cee1738ad9bbb88b5d16232c786a571313e0ea8fdd01e35540b395c674",
+        "bytes": 7541
+      },
+      {
+        "path": "internal/observe/metrics_test.go",
+        "sha256": "3506a09182e2c63b620df4f07e2b82272a83abcc8ee59fdc3033afc4d860c80b",
+        "bytes": 3882
+      },
+      {
+        "path": "internal/queue/job.go",
+        "sha256": "0c314c42de8c9e340e15419e4245386497cf12926c431cadb73038b096004681",
+        "bytes": 2010
+      },
+      {
+        "path": "internal/store/statistics.go",
+        "sha256": "d740ff179c9982d3da5ed0ea86def143ccff9fb691b65927de89501be9ffac0a",
+        "bytes": 1037
+      },
+      {
+        "path": "internal/store/store.go",
+        "sha256": "f8e663540d6fe89f15e2e3a71f681cc91476d02c40a33066d792ea0258c92460",
+        "bytes": 10374
+      },
+      {
+        "path": "internal/worker/backoff.go",
+        "sha256": "6db1e9a4147fa28e64ae19d79c8806811da803e4785a402139864bb1a05c73b4",
+        "bytes": 527
+      },
+      {
+        "path": "internal/worker/engine.go",
+        "sha256": "d9b9d3b8bfdaee42c845517d6d537e676c9146b95031509a957f586dba7b108e",
+        "bytes": 8016
+      },
+      {
+        "path": "internal/worker/engine_test.go",
+        "sha256": "7233ee988cebf43b2047a8406fcb18fc1def05c4cbea51468ae410cde8dcd46d",
+        "bytes": 12240
+      },
+      {
+        "path": "internal/worker/registry.go",
+        "sha256": "1f12a94b859bdef4de33298e71579eaec9d3242abfd7d626fbec90a8ea58841f",
+        "bytes": 3860
+      },
+      {
+        "path": "internal/worker/registry_test.go",
+        "sha256": "096ceb19914df789444f4b38804cafbaac8e67c75ae3e24a25919e6874b10dd3",
+        "bytes": 5682
+      },
+      {
+        "path": "migrations/migrations.go",
+        "sha256": "d5ab31cfef147a67017dfb51ab00e872515b186e856a3987ce76988e025ce14b",
+        "bytes": 82
+      },
+      {
+        "path": "scripts/benchdb/main.go",
+        "sha256": "faeb510b19d1e92250a05804f7d5ebcceba52aebd92bfc921bac679ac374d5ee",
+        "bytes": 14749
+      },
+      {
+        "path": "scripts/benchdb/main_test.go",
+        "sha256": "a68bf9c4bf9693bb9fb4cb27d0e88368b20fe945b1a08cd38dda8e1cf2e4ae3c",
+        "bytes": 1772
+      },
+      {
+        "path": "tests/api_integration_test.go",
+        "sha256": "7247436d84b72ee703d8b978155a223464bbf136c8a4c806fc66fa3ccc99f16c",
+        "bytes": 8664
+      },
+      {
+        "path": "tests/business_integration_test.go",
+        "sha256": "9f7470b535fd0be120660805e4ee7ce639839bfb976c4e717c1a3f9f5bd21b48",
+        "bytes": 2202
+      },
+      {
+        "path": "tests/database_outage_integration_test.go",
+        "sha256": "b54d4242420fa3d8d811d6a2c6daa4d266ef423ade383408539e0bb9de72caa6",
+        "bytes": 4889
+      },
+      {
+        "path": "tests/helpers_test.go",
+        "sha256": "1ede0d1bd891fa0002fc10819c089b47e165859b08be92aaa75511e71ef8fe4d",
+        "bytes": 4881
+      },
+      {
+        "path": "tests/metrics_integration_test.go",
+        "sha256": "93b450f5bfcdbe51c2259f6a31358aa742f6e06b9d6dbf862cdddf5f194dac8c",
+        "bytes": 1285
+      },
+      {
+        "path": "tests/process_integration_test.go",
+        "sha256": "4f14aca901ab1d46a4f1cd9bce3bb4a08c906e9faeda91d9418d7e525c538543",
+        "bytes": 11801
+      },
+      {
+        "path": "tests/store_integration_test.go",
+        "sha256": "72ba64f17a793d76737619954895d2cccf62136a9855dc6e4501c1dbd2fd3b74",
+        "bytes": 23835
+      },
+      {
+        "path": "tests/worker_integration_test.go",
+        "sha256": "ae9b71400e9f8898647bcecf6f782c275715d870f24926adf9c7dfdf3463a82b",
+        "bytes": 4535
+      }
+    ]
+  },
+  "git_before": {
+    "command": [
+      "git",
+      "--no-optional-locks",
+      "-C",
+      "C:\\Users\\Набиюлла\\Desktop\\Projects\\task-queue",
+      "status",
+      "--short"
+    ],
+    "cwd": "C:\\Users\\Набиюлла\\Desktop\\Projects\\task-queue",
+    "exit_code": 0,
+    "wall_seconds": 0.09236400000008871,
+    "stdout": "",
+    "stderr": ""
+  },
+  "analysis": {
+    "command": [
+      "C:\\Users\\Набиюлла\\Desktop\\Projects\\static-analyzer\\artifacts\\boundaryguard-real.exe",
+      "-config",
+      "C:\\Users\\Набиюлла\\Desktop\\Projects\\static-analyzer\\testdata\\durableq.json",
+      "-test=false",
+      "./..."
+    ],
+    "cwd": "C:\\Users\\Набиюлла\\Desktop\\Projects\\task-queue",
+    "exit_code": 0,
+    "wall_seconds": 23.915159800002584,
+    "stdout": "",
+    "stderr": ""
+  },
+  "after": {
+    "sha256": "a1f1cf839de3f34e7fded194881db488ee93f6da06913922133469d58d8ba99a",
+    "file_count": 33,
+    "total_bytes": 182582,
+    "files": [
+      {
+        "path": "artifacts/local/.review/jsonb.go",
+        "sha256": "12644bcb974a6c8df76c806bcf58c0a6971eeb3b49263065db205f6052e25830",
+        "bytes": 2032
+      },
+      {
+        "path": "artifacts/local/.review/main.go",
+        "sha256": "19a409c7b658fdc9a7c54700678029d3ed6561bc4259f5f4314cbde416afb8e9",
+        "bytes": 1702
+      },
+      {
+        "path": "cmd/api/main.go",
+        "sha256": "dcd3e37c052e4a0e1e71461ea7490c7b8b3269e3f85bc2917963d8081478b9e3",
+        "bytes": 2343
+      },
+      {
+        "path": "cmd/worker/main.go",
+        "sha256": "11209d3255af5c69f4b4f45069c1b397b533382ac071db8c27683fbc4591481b",
+        "bytes": 3588
+      },
+      {
+        "path": "go.mod",
+        "sha256": "c11f0831d6818afbdf12cb9ecb0038698462b19f8ab4ca03f9f35e354527c76e",
+        "bytes": 795
+      },
+      {
+        "path": "go.sum",
+        "sha256": "f3b5cc9367308f67a5c5d7107dd3be32b368bedc952b16078ca976fc322a5eb6",
+        "bytes": 4513
+      },
+      {
+        "path": "internal/config/config.go",
+        "sha256": "03ca25b64a4c8281f734b0ddc94907e1493b6cc7d7cfec47b43a2bd2632410be",
+        "bytes": 2894
+      },
+      {
+        "path": "internal/config/config_test.go",
+        "sha256": "b75e533378b4e0faaf67bba73212561d835be3b494a03f0144915678adc7eadf",
+        "bytes": 1037
+      },
+      {
+        "path": "internal/handlers/business.go",
+        "sha256": "ee26d59a5447395ca3e13bd40221a3403f8404c8f22c838f4085afd477aa63cb",
+        "bytes": 2035
+      },
+      {
+        "path": "internal/httpapi/api.go",
+        "sha256": "2e949b592cb9d37b297c3d15ec97b9ed5411373da93727b52063f8a05345134b",
+        "bytes": 9511
+      },
+      {
+        "path": "internal/httpapi/api_test.go",
+        "sha256": "4dce18d9817d437746d6c7715396581451086ec497ed5c294b079a2163538659",
+        "bytes": 12352
+      },
+      {
+        "path": "internal/httpapi/validate.go",
+        "sha256": "637d9fe410bc9be8aca5d86d0aee4076176dee33e2872a9bf4eb127661b4f547",
+        "bytes": 5916
+      },
+      {
+        "path": "internal/observe/metrics.go",
+        "sha256": "d482e5cee1738ad9bbb88b5d16232c786a571313e0ea8fdd01e35540b395c674",
+        "bytes": 7541
+      },
+      {
+        "path": "internal/observe/metrics_test.go",
+        "sha256": "3506a09182e2c63b620df4f07e2b82272a83abcc8ee59fdc3033afc4d860c80b",
+        "bytes": 3882
+      },
+      {
+        "path": "internal/queue/job.go",
+        "sha256": "0c314c42de8c9e340e15419e4245386497cf12926c431cadb73038b096004681",
+        "bytes": 2010
+      },
+      {
+        "path": "internal/store/statistics.go",
+        "sha256": "d740ff179c9982d3da5ed0ea86def143ccff9fb691b65927de89501be9ffac0a",
+        "bytes": 1037
+      },
+      {
+        "path": "internal/store/store.go",
+        "sha256": "f8e663540d6fe89f15e2e3a71f681cc91476d02c40a33066d792ea0258c92460",
+        "bytes": 10374
+      },
+      {
+        "path": "internal/worker/backoff.go",
+        "sha256": "6db1e9a4147fa28e64ae19d79c8806811da803e4785a402139864bb1a05c73b4",
+        "bytes": 527
+      },
+      {
+        "path": "internal/worker/engine.go",
+        "sha256": "d9b9d3b8bfdaee42c845517d6d537e676c9146b95031509a957f586dba7b108e",
+        "bytes": 8016
+      },
+      {
+        "path": "internal/worker/engine_test.go",
+        "sha256": "7233ee988cebf43b2047a8406fcb18fc1def05c4cbea51468ae410cde8dcd46d",
+        "bytes": 12240
+      },
+      {
+        "path": "internal/worker/registry.go",
+        "sha256": "1f12a94b859bdef4de33298e71579eaec9d3242abfd7d626fbec90a8ea58841f",
+        "bytes": 3860
+      },
+      {
+        "path": "internal/worker/registry_test.go",
+        "sha256": "096ceb19914df789444f4b38804cafbaac8e67c75ae3e24a25919e6874b10dd3",
+        "bytes": 5682
+      },
+      {
+        "path": "migrations/migrations.go",
+        "sha256": "d5ab31cfef147a67017dfb51ab00e872515b186e856a3987ce76988e025ce14b",
+        "bytes": 82
+      },
+      {
+        "path": "scripts/benchdb/main.go",
+        "sha256": "faeb510b19d1e92250a05804f7d5ebcceba52aebd92bfc921bac679ac374d5ee",
+        "bytes": 14749
+      },
+      {
+        "path": "scripts/benchdb/main_test.go",
+        "sha256": "a68bf9c4bf9693bb9fb4cb27d0e88368b20fe945b1a08cd38dda8e1cf2e4ae3c",
+        "bytes": 1772
+      },
+      {
+        "path": "tests/api_integration_test.go",
+        "sha256": "7247436d84b72ee703d8b978155a223464bbf136c8a4c806fc66fa3ccc99f16c",
+        "bytes": 8664
+      },
+      {
+        "path": "tests/business_integration_test.go",
+        "sha256": "9f7470b535fd0be120660805e4ee7ce639839bfb976c4e717c1a3f9f5bd21b48",
+        "bytes": 2202
+      },
+      {
+        "path": "tests/database_outage_integration_test.go",
+        "sha256": "b54d4242420fa3d8d811d6a2c6daa4d266ef423ade383408539e0bb9de72caa6",
+        "bytes": 4889
+      },
+      {
+        "path": "tests/helpers_test.go",
+        "sha256": "1ede0d1bd891fa0002fc10819c089b47e165859b08be92aaa75511e71ef8fe4d",
+        "bytes": 4881
+      },
+      {
+        "path": "tests/metrics_integration_test.go",
+        "sha256": "93b450f5bfcdbe51c2259f6a31358aa742f6e06b9d6dbf862cdddf5f194dac8c",
+        "bytes": 1285
+      },
+      {
+        "path": "tests/process_integration_test.go",
+        "sha256": "4f14aca901ab1d46a4f1cd9bce3bb4a08c906e9faeda91d9418d7e525c538543",
+        "bytes": 11801
+      },
+      {
+        "path": "tests/store_integration_test.go",
+        "sha256": "72ba64f17a793d76737619954895d2cccf62136a9855dc6e4501c1dbd2fd3b74",
+        "bytes": 23835
+      },
+      {
+        "path": "tests/worker_integration_test.go",
+        "sha256": "ae9b71400e9f8898647bcecf6f782c275715d870f24926adf9c7dfdf3463a82b",
+        "bytes": 4535
+      }
+    ]
+  },
+  "git_after": {
+    "command": [
+      "git",
+      "--no-optional-locks",
+      "-C",
+      "C:\\Users\\Набиюлла\\Desktop\\Projects\\task-queue",
+      "status",
+      "--short"
+    ],
+    "cwd": "C:\\Users\\Набиюлла\\Desktop\\Projects\\task-queue",
+    "exit_code": 0,
+    "wall_seconds": 0.058584200000041164,
+    "stdout": "",
+    "stderr": ""
+  },
+  "sources_unchanged": true,
+  "git_status_unchanged": true,
+  "analysis_result": "clean for selected policy",
+  "finished_at_utc": "2026-10-29T21:14:33.290158+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "packages": 32,
+  "fanout": 2,
+  "repeat": 2,
+  "load_ms": 798.0234,
+  "analysis_ms": 1.0833,
+  "process_wall_ms": 827.7695,
+  "process_cpu_ms": 62.5,
+  "peak_process_bytes": 15073280,
+  "diagnostics": 1
+}

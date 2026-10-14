@@ -1,0 +1,26 @@
+{
+  "dependency_rules": [
+    {
+      "from_layer": "entry",
+      "id": "synthetic",
+      "kind": "transitive",
+      "to_layer": "target"
+    }
+  ],
+  "forbidden_symbols": [],
+  "layers": [
+    {
+      "name": "entry",
+      "packages": [
+        "bench.test/graph/p0000"
+      ]
+    },
+    {
+      "name": "target",
+      "packages": [
+        "bench.test/graph/p0031"
+      ]
+    }
+  ],
+  "version": 1
+}

@@ -31,6 +31,8 @@ for i, (message, weight) in enumerate(plan):
 assert all(a["date"] < b["date"] for a, b in zip(commits, commits[1:]))
 path = pathlib.Path("docs/commit-schedule.json")
 path.parent.mkdir(exist_ok=True)
+if path.exists():
+    raise SystemExit("Refusing to replace an existing historical schedule; preserve committed dates.")
 path.write_text(json.dumps({"notice": "generated historical schedule; user-requested Git metadata, not elapsed work", "seed": seed, "timezone": "Europe/Moscow", "commits": commits}, indent=2) + "\n", encoding="utf-8")
 for commit in commits:
     print(commit["date"], commit["message"])

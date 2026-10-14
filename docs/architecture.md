@@ -78,7 +78,8 @@ Generated Go source is included by default and its imports remain graph edges.
 Files excluded by the Go build constraints are not analyzed; malformed or
 unavailable selected dependencies cause a failed invocation. Source files are
 read, never rewritten. There is no suppression syntax, generated-file exemption
-or architecture autofix in version 1.
+or architecture autofix in version 1. Enabled `-fix`/`-diff` flags are rejected
+before driver execution; they cannot suppress a failing architecture result.
 
 ## CLI and CI behavior
 
@@ -97,7 +98,8 @@ directly.
 
 The supported CLI contract is exit 0 for a clean run, 3 for rule diagnostics,
 1 for loading/compilation or analyzer failures, and 2 for invalid configuration
-or parameters. Help exits successfully. Subprocess tests verify actual behavior,
+or flags. Missing package patterns exit 1, as in the driver. Help exits successfully.
+Subprocess tests verify actual behavior,
 including native JSON, compilation errors and unavailable dependencies. If a
 load error and diagnostics coexist, the invocation remains unsuccessful; callers
 should treat every nonzero result as CI failure instead of depending on an

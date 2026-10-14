@@ -1,0 +1,84 @@
+{
+  "analysis_scope": "checker.Analyze including scheduling and fact transport; no printing or package loading",
+  "arch": "amd64",
+  "build_info": "go\tgo1.26.2\npath\tboundaryguard.local/boundaryguard/scripts/bench\nmod\tboundaryguard.local/boundaryguard\t(devel)\t\ndep\tgolang.org/x/mod\tv0.42.0\th1:ICeL3t2L30ljSPHHxDnR4fqVcBt/zR2zJAb9juavmQg=\ndep\tgolang.org/x/sync\tv0.24.0\th1:iqiDrGoDgyuvAKrhLQthUEzU/R378N78gXbBjxed7oA=\ndep\tgolang.org/x/tools\tv0.52.0\th1:ryxg4U63oaUYk7uOLTF37n43f4qgtGvqV4Ioit1BaEs=\nbuild\t-buildmode=exe\nbuild\t-compiler=gc\nbuild\tCGO_ENABLED=1\nbuild\tCGO_CFLAGS=\nbuild\tCGO_CPPFLAGS=\nbuild\tCGO_CXXFLAGS=\nbuild\tCGO_LDFLAGS=\nbuild\tGOARCH=amd64\nbuild\tGOOS=windows\nbuild\tGOAMD64=v1\n",
+  "cache": "warm: discarded repeat 0 for each generated graph; no cache eviction",
+  "cache_paths": [
+    "C:\\Users\\Набиюлла\\Desktop\\Projects\\static-analyzer\\artifacts\\go-cache",
+    "C:\\Users\\Набиюлла\\go\\pkg\\mod"
+  ],
+  "cpu_scope": "worker user+system CPU only, excludes go command children",
+  "go": "go version go1.26.2 windows/amd64",
+  "logical_cpus": 16,
+  "measured_at": "2026-10-29T21:16:16Z",
+  "memory_scope": "worker process only; Windows sampled peak working set, Unix wait4 maxrss; excludes go command children",
+  "os": "windows",
+  "samples": [
+    {
+      "packages": 8,
+      "fanout": 2,
+      "repeat": 1,
+      "load_ms": 352.2762,
+      "analysis_ms": 0.529,
+      "process_wall_ms": 379.766,
+      "process_cpu_ms": 46.875,
+      "peak_process_bytes": 13725696,
+      "diagnostics": 1
+    },
+    {
+      "packages": 8,
+      "fanout": 2,
+      "repeat": 2,
+      "load_ms": 361.7607,
+      "analysis_ms": 0.5467,
+      "process_wall_ms": 388.5371,
+      "process_cpu_ms": 93.75,
+      "peak_process_bytes": 13656064,
+      "diagnostics": 1
+    },
+    {
+      "packages": 32,
+      "fanout": 2,
+      "repeat": 1,
+      "load_ms": 716.0476,
+      "analysis_ms": 1.0966,
+      "process_wall_ms": 748.4735,
+      "process_cpu_ms": 109.375,
+      "peak_process_bytes": 15065088,
+      "diagnostics": 1
+    },
+    {
+      "packages": 32,
+      "fanout": 2,
+      "repeat": 2,
+      "load_ms": 798.0234,
+      "analysis_ms": 1.0833,
+      "process_wall_ms": 827.7695,
+      "process_cpu_ms": 62.5,
+      "peak_process_bytes": 15073280,
+      "diagnostics": 1
+    },
+    {
+      "packages": 96,
+      "fanout": 2,
+      "repeat": 1,
+      "load_ms": 1638.0669,
+      "analysis_ms": 5.5381,
+      "process_wall_ms": 1674.0618,
+      "process_cpu_ms": 93.75,
+      "peak_process_bytes": 18456576,
+      "diagnostics": 1
+    },
+    {
+      "packages": 96,
+      "fanout": 2,
+      "repeat": 2,
+      "load_ms": 1461.4731,
+      "analysis_ms": 5.6941,
+      "process_wall_ms": 1493.1111,
+      "process_cpu_ms": 171.875,
+      "peak_process_bytes": 18726912,
+      "diagnostics": 1
+    }
+  ]
+}
