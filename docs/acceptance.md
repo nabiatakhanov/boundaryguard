@@ -3,8 +3,9 @@
 Actual verification ran on 2026-10-29/30 in Europe/Moscow with Go 1.26.2,
 Windows/amd64 and GCC. Git metadata is the user's generated historical schedule,
 not actual implementation time. There was no pre-existing repository history;
-the supplied prompt was preserved. No push, publication or global Git setting
-change was performed.
+the supplied prompt was preserved. During that initial acceptance run, no push,
+publication or global Git setting change was performed. The later GitHub
+publication was separately requested by the user.
 
 ## Implemented components
 
@@ -105,9 +106,9 @@ resource accounting is NOT RUN. No cold-cache, speedup or scale guarantee is mad
 
 ## History and boundaries
 
-Seven substantive commits follow `docs/commit-schedule.json`: six planned stages
-and a final portability repair. The initial six dates are preserved; the repair
-uses the reserved time later on the final day. Run
+Eight substantive commits follow `docs/commit-schedule.json`: six planned stages,
+a portability repair and a later README publication update. All existing dates
+are preserved; the additional commits use reserved time later on the final day. Run
 `python scripts/audit_history.py` after the final commit to validate parent
 order, exact planned messages, strict increasing dates, UTC+03:00,
 AuthorDate=CommitDate, and inclusive 2026-07-10..2026-10-14 bounds. It writes the

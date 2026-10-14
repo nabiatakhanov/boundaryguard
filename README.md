@@ -1,5 +1,7 @@
 # BoundaryGuard
 
+[GitHub repository](https://github.com/nabiatakhanov/boundaryguard)
+
 BoundaryGuard checks explicit architecture rules in Go modules:
 
 - **BG001**: forbidden direct imports, including renamed, blank and dot imports.
@@ -48,7 +50,7 @@ go install boundaryguard.local/boundaryguard/cmd/boundaryguard
 `go install ./cmd/boundaryguard` is equivalent. The binary goes into `GOBIN` or
 `GOPATH/bin`. `boundaryguard.local/boundaryguard` is the real module path in this
 repository, not a published service; installation with a remote `@version` is
-not offered. No repository has been published or pushed.
+not offered. Clone this repository and use the local installation command above.
 
 Run the binary **inside the target Go module**, supplying its explicit policy:
 
